@@ -12,6 +12,7 @@ export default function Navbar({ onLogout, session }) {
           <img src="/logo.svg" className="h-8 w-8 rounded-xl" alt="logo" />
           <Link to="/" className="font-bold tracking-tight">CRM Grátis</Link>
           <Link to="/sobre" className="ml-3 text-sm text-gray-600 dark:text-gray-300 hover:text-primary-700">Sobre</Link>
+          <Link to="/blog" className="ml-3 text-sm text-gray-600 dark:text-gray-300 hover:text-primary-700">Blog</Link>
         </div>
         <div className="flex items-center gap-3">
           <button onClick={flip} className="btn-ghost" title="Alternar tema">{theme==='dark'?'🌙':'☀️'}</button>

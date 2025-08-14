@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   darkMode: 'class',
-  content: ['./index.html', './src/**/*.{js,jsx}'],
+  content: ['./index.html', './src/**/*.{js,jsx,md}'],
   theme: {
     extend: {
       fontFamily: { sans: ['Inter','ui-sans-serif','system-ui','Apple Color Emoji','Segoe UI Emoji'] },
@@ -14,7 +14,6 @@ export default {
         accent: '#B517F4',
       },
       boxShadow: { card: '0 10px 20px rgba(138,5,190,0.08)' },
-      borderRadius: { xl2: '1.25rem' },
     },
   },
   plugins: [],

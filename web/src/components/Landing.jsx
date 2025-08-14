@@ -1,7 +1,19 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from '../lib/router'
 
 export default function Landing({ loggedIn }) {
+  useEffect(() => { document.title = 'CRM Grátis — Sobre' }, [])
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    name: 'CRM Grátis',
+    applicationCategory: 'BusinessApplication',
+    operatingSystem: 'Web',
+    offers: { '@type':'Offer', price:'0', priceCurrency:'BRL' },
+    description: 'CRM grátis e open source: clientes, negócios e tarefas.',
+    url: typeof window !== 'undefined' ? window.location.origin : 'https://example.com',
+    creator: { '@type':'Organization', name: 'CRM Grátis' }
+  }
   return (
     <div className="space-y-12">
       <section className="card card-pad text-center">
@@ -14,12 +26,13 @@ export default function Landing({ loggedIn }) {
           {loggedIn ? <Link to="/" className="btn-primary">Ir para o app</Link> : <Link to="/" className="btn-primary">Começar grátis</Link>}
           <a href="https://github.com" target="_blank" className="btn-ghost">Ver código</a>
         </div>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{__html: JSON.stringify(jsonLd)}} />
       </section>
 
       <section className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {[
           ['Clientes', 'Cadastro rápido, filtros e exportação CSV.'],
-          ['Negócios', 'Pipeline Kanban com drag-and-drop entre estágios.'],
+          ['Negócios', 'Pipeline Kanban com drag-and-drop e reordenação.'],
           ['Tarefas', 'Pendentes e concluídas com relacionamentos.'],
         ].map(([title,desc]) => (
           <div key={title} className="card card-pad">
@@ -27,15 +40,6 @@ export default function Landing({ loggedIn }) {
             <p className="mt-2 text-gray-700 dark:text-gray-300">{desc}</p>
           </div>
         ))}
-      </section>
-
-      <section className="card card-pad">
-        <h2 className="text-xl font-semibold">SEO “CRM grátis”</h2>
-        <ul className="list-disc pl-5 text-gray-700 dark:text-gray-300 mt-2 space-y-1">
-          <li>Landing otimizada com palavras-chave.</li>
-          <li>Blog posts: “Como escolher um CRM grátis”, “Planilha vs CRM”.</li>
-          <li>Publicar em Product Hunt, Indie Hackers e Reddit.</li>
-        </ul>
       </section>
     </div>
   )
