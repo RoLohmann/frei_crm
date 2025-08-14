@@ -39,21 +39,14 @@ export default function Dashboard({ session }) {
     </div>
   )
 }
-
 function Card({ title, value }) {
   return (
-    <div className="bg-white rounded-2xl p-4 shadow border">
-      <div className="text-sm text-gray-500">{title}</div>
-      <div className="text-2xl font-bold">{value}</div>
+    <div className="card card-pad">
+      <div className="text-sm text-gray-500 dark:text-gray-400">{title}</div>
+      <div className="text-3xl font-bold mt-1">{value}</div>
     </div>
   )
 }
-
 function TabButton({ active, children, ...props }) {
-  return (
-    <button {...props}
-      className={`px-3 py-1 rounded-lg border ${active ? 'bg-black text-white' : 'bg-white'}`}>
-      {children}
-    </button>
-  )
+  return <button {...props} className={`tab ${active ? 'tab-active' : 'bg-white dark:bg-[#100c16]'}`}>{children}</button>
 }
