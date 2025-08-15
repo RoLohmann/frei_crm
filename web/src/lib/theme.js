@@ -1,16 +1,1 @@
-const KEY = 'theme'
-export function getTheme() {
-  const pref = localStorage.getItem(KEY)
-  if (pref === 'light' || pref === 'dark') return pref
-  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
-}
-export function applyTheme(t) {
-  const el = document.documentElement
-  if (t === 'dark') el.classList.add('dark'); else el.classList.remove('dark')
-  localStorage.setItem(KEY, t)
-}
-export function toggleTheme() {
-  const next = (getTheme() === 'dark') ? 'light' : 'dark'
-  applyTheme(next)
-  return next
-}
+const K='theme';export function getTheme(){const p=localStorage.getItem(K);if(p==='light'||p==='dark')return p;return matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'} export function applyTheme(t){const e=document.documentElement;if(t==='dark')e.classList.add('dark');else e.classList.remove('dark');localStorage.setItem(K,t)} export function toggleTheme(){const n=(getTheme()==='dark')?'light':'dark';applyTheme(n);return n}
